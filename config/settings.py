@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
     'clining',
+    
+    'rosetta',
 ]
 
 MIDDLEWARE = [
@@ -107,16 +109,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 LANGUAGES = (
+    ('en', 'EN'),
     ('uz', 'UZ'),
     ('ru', 'RU'),
+    
 )
 
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'ru'
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
 
 
 
