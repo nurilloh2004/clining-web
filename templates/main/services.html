@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+     <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url({% static 'img/banner/21.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1>Our Services</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'myprint:home' %}"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="active">Services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+    <!-- Start there how me fuck mouse of your wife  Features Area 
+    ============================================= -->
+  
+    <!-- End Fun Factor Area -->
+
+    <!-- Start Pricing Area 
+    ============================================= -->
+    <div class="pricing-area default-padding-bottom bottom-less" style="padding-top: 50px;">
+        <!-- Fixed Shape -->
+        <div class="fixed-sahpe-bottom">
+            <img src="{% static 'img/shape/19.png' %}" alt="Shape">
+        </div>
+        <!-- End Fixed Shape -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        
+                        <h2>Quality leader among cleaning <br> Companies in the industry!</h2>
+                        <div class="devider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="pricing pricing-simple">
+                <div class="row">
+                    <div class="owl-carousel owl-theme owl-loaded">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage-rl">
+                                <div class="owl-item"> 
+                                    <div class="col-lg-12 single-item">
+                                    <div class="pricing-item">
+                                        <div class="pricing-header">
+                                            <h4>Residential</h4>
+                                        </div>
+                                        <div class="price">
+                                            <h2><sup>$</sup>20</h2>
+                                            <p>
+                                                For Homes
+                                            </p>
+                                        </div>
+                                        <ul>
+                                            <li>Profetional Cleaner <i class="fas fa-check-circle"></i></li>
+                                            <li>2 Bedrroms Cleaning <i class="fas fa-check-circle"></i></li>
+                                            <li>Kitchen Cleaning <i class="fas fa-times-circle"></i></li>
+                                            <li>2 Bathroom Cleaning <i class="fas fa-check-circle"></i></li>
+                                            <li>Roof Cleaning   <i class="fas fa-check-circle"></i></li>
+                                        </ul>
+                                        <a class="btn btn-dark effect btn-sm" href="{% url 'myprint:contact' %}">Book Now</a>
+                                    </div>
+                                </div></div>
+                                <div class="owl-item">
+                                    <div class="col-lg-12 single-item">
+                                        <div class="pricing-item active">
+                                            <div class="pricing-header">
+                                                <h4>Commercial</h4>
+                                            </div>
+                                            <div class="price">
+                                                <h2><sup>$</sup>36</h2>
+                                                <p>
+                                                    For Business
+                                                </p>
+                                            </div>
+                                            <ul>
+                                                <li>Profetional Cleaner <i class="fas fa-check-circle"></i></li>
+                                                <li>Windows Cleaning  <i class="fas fa-check-circle"></i></li>
+                                                <li>Kitchen Cleaning <i class="fas fa-check-circle"></i></li>
+                                                <li>2 Bathroom Cleaning <i class="fas fa-check-circle"></i></li>
+                                                <li>Roof Cleaning   <i class="fas fa-times-circle"></i></li>
+                                            </ul>
+                                            <a class="btn btn-theme secondary effect btn-sm" href="{% url 'myprint:contact' %}">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item">
+                                    <div class="col-lg-12 single-item">
+                                        <div class="pricing-item">
+                                            <div class="pricing-header">
+                                                <h4>Ressort</h4>
+                                            </div>
+                                            <div class="price">
+                                                <h2><sup>$</sup>49</h2>
+                                                <p>
+                                                    For Strata
+                                                </p>
+                                            </div>
+                                            <ul>
+                                                <li>Profetional Cleaner <i class="fas fa-check-circle"></i></li>
+                                                <li>2 Livingroom Cleaning <i class="fas fa-check-circle"></i></li>
+                                                <li>Kitchen Cleaning <i class="fas fa-times-circle"></i></li>
+                                                <li>2 Bathroom Cleaning <i class="fas fa-check-circle"></i></li>
+                                                <li>Roof Cleaning   <i class="fas fa-check-circle"></i></li>
+                                            </ul>
+                                            <a class="btn btn-dark effect btn-sm" href="{% url 'myprint:contact' %}">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   
+                  
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- End Pricing Area -->
+    <div class="appoinment-area bg-theme">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-lg-6">
+                    <div class="thumb">
+                        <img src="{% static 'img/illustration/6.png' %}" alt="illustration">
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 form-content">
+                    <div class="form-items">
+                        <h2>Создай свой тариф</h2>
+                        <p>
+                            Get a quick response within 24 hours
+                        </p>
+
+                        <!-- forma -->
+                        <form method="POST">
+                           {% csrf_token %}
+                           <div class="form-box">
+
+                            <select id="">
+                                {% for rm in room %}
+                                    <option name="{{rm.name}}" value="{{rm.price}}">{{rm.name}}</option>
+                                {% endfor %}
+                            </select>
+                            {% for sr in service %}
+                            <div class="form-checkbox">
+                                <input type="checkbox"  class="rate__input" id="{{sr.id}} value={{sr.name}}">
+                                <label for="{{sr.name}}"  name="{{sr.price}}" class="rate__lable">{{sr.name}}</label>
+                            </div>
+                            {% endfor %}
+                           </div>
+
+                           <div class="row" style="margin-top: 25px;">
+                            <div class="col-lg-12">
+                                <button class="btn-animation dark border" type="submit" name="submit" id="submit">
+                                    <span>Get it <i class="fas fa-angle-right"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                            
+
+
+                        <div class="form-price">
+                            <h2>--  </span></h2>
+                        </div>
+                        </form>
+
+                        <!-- forma -->
+
+
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    {% endblock content %}

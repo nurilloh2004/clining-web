@@ -1,0 +1,97 @@
+{% include "base.html" %}
+{% load static %}
+{% block content %}
+     <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url({% static 'img/banner/6.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1>Latest Projects</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="active">Projects</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+    <!-- Start Project Area
+    ============================================= -->
+    <div class="project-area overflow-hidden default-padding">
+        <div class="container">
+            <div class="project-items-area">
+                <div class="masonary">
+                    <div id="portfolio-grid" class="gallery-items colums-3" style="position: relative; height: 708.3px;">
+                        
+                        <!-- Single Item -->
+                        <div class="pf-item" style="position: absolute; left: 0%; top: 0px;">
+                            <div class="project-style-two">
+                                <img src="{% static 'img/projects/v1.jpg' %}" alt="Thumb">
+                                <div class="info">
+                                    <span>House, Office</span>
+                                    <h4><a href="project-details.html">Door Cleaning</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+
+                        <!-- Single Item -->
+                        <div class="pf-item" style="position: absolute; left: 33.25%; top: 0px;">
+                            <div class="project-style-two">
+                                <img src="{% static 'img/projects/2.jpg' %}" alt="Thumb">
+                                <div class="info">
+                                    <span>Apartment</span>
+                                    <h4><a href="project-details.html">Garden Cleaning</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+
+                        <!-- Single Item -->
+                        <div class="pf-item" style="position: absolute; left: 66.5833%; top: 0px;">
+                            <div class="project-style-two">
+                                <img src="{% static 'img/projects/10.jpg' %}" alt="Thumb">
+                                <div class="info">
+                                    <span>Residential, Office</span>
+                                    <h4><a href="project-details.html">Bedroom Cleaning</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+
+                        <!-- Single Item -->
+                        <div class="pf-item" style="position: absolute; left: 66.5833%; top: 307px;">
+                            <div class="project-style-two">
+                                <img src="{% static 'img/projects/5.jpg' %}" alt="Thumb">
+                                <div class="info">
+                                    <span>Home, Apartment</span>
+                                    <h4><a href="project-details.html">House Cleaning</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Item -->
+
+                        <!-- Single Item -->
+                        <div class="pf-item" style="position: absolute; left: 33.25%; top: 399px;">
+                            <div class="project-style-two">
+                                <img src="{% static 'img/projects/9.jpg' %}" alt="Thumb">
+                                <div class="info">
+                                    <span>Office, House</span>
+                                    <h4><a href="project-details.html">Furniture Cleaning</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Item -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Projects Area -->
+
+    {% endblock content %}
