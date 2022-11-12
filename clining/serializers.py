@@ -15,3 +15,14 @@ class RoomCategorySerializers(serializers.ModelSerializer):
     class Meta:
         model = RoomCategory
         fields = ('id', 'name', 'price')
+
+
+
+class OrdersSerialiser(serializers.ModelSerializer):
+
+    class Mera:
+        model = Orders
+        fields = ('id', 'roomname', 'roomprice', 'servicename', 'serviceprice', 'total')
+
+
+
