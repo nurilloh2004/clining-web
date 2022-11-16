@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+    'modeltranslation',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -40,20 +41,20 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
     'clining',
-    
     'rosetta',
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware', # new
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = "config.urls"
 
@@ -68,6 +69,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'config.context_proccessors.all_category',
             ],
         },
     },
@@ -108,20 +110,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-
+from django.utils.translation import gettext_lazy as _
 LANGUAGE_CODE = 'en'
 LANGUAGES = (
-    ('en', 'EN'),
-    ('uz', 'UZ'),
-    ('ru', 'RU'),
-    
+    ('en', 'en'),
+    ('uz', 'uz'),
+    ('ru', 'ru'),
 )
 
-
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
-
-MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'ru'
-MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
+MODELTRANSLATION_LANGUAGES = ('en', 'uz', 'ru' )
 
 
 
@@ -191,3 +188,6 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-success"
     }
 }
+
+ROSETTA_WSGI_AUTO_RELOAD = True
+ROSETTA_UWSGI_AUTO_RELOAD = True

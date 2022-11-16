@@ -1,4 +1,7 @@
 {% load static %}
+{% load i18n %}
+{% get_available_languages as languages %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,23 +54,23 @@
                 <div class="col-lg-9 info item-flex space-between">
                      <ul>
                         <li>
-                            <i class="fas fa-clock"></i> Working Hours: 8:00 AM – 7:45 PM
+                            <i class="fas fa-clock"></i>{% trans " Working Hours:   " %}  {{openhour}}
                         </li>
                     </ul>
                     <div class="social">
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{facebook}}">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{instagram}}">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{telegram}}">
                                     <i class="fab fa-telegram-plane"></i>
                                 </a>
                             </li>
@@ -120,23 +123,24 @@
                                 <div class="collapse navbar-collapse" id="navbar-menu">
                                     <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
                                         <li class="dropdown">
-                                            <a href="{% url 'myprint:home' %}">Home</a>
+                                            <a href="{% url 'myprint:home' %}">{% trans "Home" %}</a>
                                             
                                         </li>
                                         <li>
-                                            <a href="{% url 'myprint:about' %}">About us</a>
+                                            <a href="{% url 'myprint:about' %}">{% trans "About us" %}</a>
                                             
                                         </li>
                                         <li>
-                                            <a href="{% url 'myprint:gallary' %}">Gallary</a>
+                                            <a href="{% url 'myprint:gallary' %}">{% trans "Gallary" %}</a>
                                           
                                         </li>
                                         <li>
-                                            <a href="{% url 'myprint:services' %}">Services</a>
-                                           
+                                            <a href="{% url 'myprint:services' %}">{% trans "Services" %}</a>
                                         </li>
-                                       
-                                        <li><a href="{% url 'myprint:contact' %}">contact</a></li>
+                                        <li>
+                                            <a href="{% url 'myprint:guests' %}">{% trans "Guests" %}</a>
+                                        </li>
+                                        <li><a href="{% url 'myprint:contact' %}">{% trans "contact" %}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -148,9 +152,11 @@
                                     <ul>
                                         <li class="search"><a href="#"><i class="fas fa-search"></i></a></li>
                                         <li style="width: 80px; display: flex; padding: 0px;" class="side-menu">
-                                            <a href="">Ru</a>
-                                            <a href="">Eng</a>
-                                            <a href="">Uz</a>
+                                            {% for lang_code, lang_name in languages %}
+                                                {% language lang_code %}
+                                                    <button type="submit" class="btn btn-light ml-2"><a href="/{{ lang_code }}">{{ lang_name }}</a></button>
+                                                {% endlanguage %}
+                                            {% endfor %}
                                         </li>
                                     </ul>
                                 </div> 
@@ -192,7 +198,7 @@
                         <div class="f-item about">
                             <img src="{% static 'img/logo-light.png' %}" alt="Logo">
                             <p>
-                                Excellence decisively nay man yet impression for contrasted remarkably. There spoke happy for you are out. Fertile how old address did showing.
+                                {% trans "Excellence decisively nay man yet impression for contrasted remarkably. There spoke happy for you are out. Fertile how old address did showing." %}
                             </p>
                             <form action="#">
                                 <input type="email" placeholder="Ваша почта" class="form-control" name="email">
@@ -202,69 +208,68 @@
                     </div>
                     <div class="col-lg-2 col-md-6 item">
                         <div class="f-item link">
-                            <h4 class="widget-title">Quick LInk</h4>
+                            <h4 class="widget-title">{% trans "Quick LInk" %}</h4>
                             <ul>
                                 <li>
-                                    <a href="index.html"><i class="fas fa-angle-right"></i> Home</a>
+                                    <a href="index.html"><i class="fas fa-angle-right"></i> {% trans "Home" %}</a>
                                 </li>
                                 <li>
-                                    <a href="about-us.html"><i class="fas fa-angle-right"></i> About us</a>
+                                    <a href="about-us.html"><i class="fas fa-angle-right"></i>{% trans " About us" %}</a>
                                 </li>
                                 <li>
-                                    <a href="about-us.html"><i class="fas fa-angle-right"></i> Compnay History</a>
+                                    <a href="about-us.html"><i class="fas fa-angle-right"></i> {% trans "Compnay History" %}</a>
                                 </li>
                                 <li>
-                                    <a href="about-us.html"><i class="fas fa-angle-right"></i> Features</a>
+                                    <a href="about-us.html"><i class="fas fa-angle-right"></i> {% trans "Features" %}</a>
                                 </li>
                                 <li>
-                                    <a href="blog-standard.html"><i class="fas fa-angle-right"></i> Blog Page</a>
+                                    <a href="blog-standard.html"><i class="fas fa-angle-right"></i> {% trans "Blog Page" %}</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> Login</a>
+                                    <a href="#"><i class="fas fa-angle-right"></i> {% trans "Login" %}</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 item">
                         <div class="f-item link">
-                            <h4 class="widget-title">Services</h4>
+                            <h4 class="widget-title">{% trans "Services" %}</h4>
                             <ul>
                                 <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> House Cleaning</a>
+                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "House Cleaning" %}</a>
                                 </li>
                                 <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> Carpet</a>
+                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Carpet" %}</a>
                                 </li>
                                 <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> Garden</a>
+                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Garden" %}</a>
                                 </li>
                                 <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> Bedroom</a>
+                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Bedroom" %}</a>
                                 </li>
                                 <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> Residential</a>
+                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Residential" %}</a>
                                 </li>
                                 <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> Maid Services</a>
+                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Maid Services" %}</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 item">
                         <div class="f-item contact-widget">
-                            <h4 class="widget-title">Contact Info</h4>
+                            <h4 class="widget-title">{% trans "Contact Info" %}</h4>
                             <div class="address">
                                 <ul>
                                     <li>
-                                        5919 Trussville Crossings Pkwy, new Dusting town, Austria
+                                        {% trans "5919 Trussville Crossings Pkwy, new Dusting town, Austria" %}
                                     </li>
                                     <li>
                                         <div class="icon">
                                             <i class="fas fa-clock"></i>
                                         </div>
                                         <div class="content">
-                                            <strong>Opening Hours:</strong>
-                                            8:00 AM – 7:45 PM
+                                            <strong>{% trans "Opening Hours:"%}</strong>{{openhour}}
                                         </div>
                                     </li>
                                     <li>
@@ -272,8 +277,8 @@
                                             <i class="fas fa-phone"></i>
                                         </div>
                                         <div class="content">
-                                            <strong>Phone:</strong>
-                                            <a href="tel:2151234567">+123 34598768</a>
+                                            <strong>{% trans "Phone:" %}</strong>
+                                            <a href="tel:{{phone}}">{{phone}}</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -289,18 +294,18 @@
                 <div class="footer-bottom-box">
                     <div class="row">
                         <div class="col-lg-6">
-                            <p>&copy; Copyright 2022. All Rights Reserved by <a href="#">validthemes</a></p>
+                            <p>{% trans "&copy; Copyright 2022. All Rights Reserved by " %}<a href="#">validthemes</a></p>
                         </div>
                         <div class="col-lg-6 text-right link">
                             <ul>
                                 <li>
-                                    <a href="#">Terms</a>
+                                    <a href="#">{% trans "Terms" %}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Privacy</a>
+                                    <a href="#">{% trans "Privacy" %}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Support</a>
+                                    <a href="#">{% trans "Support" %}</a>
                                 </li>
                             </ul>
                         </div>
@@ -338,6 +343,7 @@
     <script src="{% static 'js/jquery.twentytwenty.js' %}"></script>
     <script src="{% static 'js/bootsnav.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    {% block script %}{% endblock script %}
 
 </body>
 </html>

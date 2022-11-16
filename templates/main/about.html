@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block content %}
 
@@ -10,8 +11,8 @@
                 <div class="col-lg-8 offset-lg-2">
                     <h1>About Us</h1>
                     <ul class="breadcrumb">
-                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="active">About</li>
+                        <li><a href="{% url 'myprint:home' %}"><i class="fas fa-home"></i> {% trans "Home" %}</a></li>
+                        <li class="active">{% trans "About" %}</li>
                     </ul>
                 </div>
             </div>
@@ -30,139 +31,31 @@
                         <img src="{% static 'img/thumb/12.jpg' %}" alt="Thumb">
                         <div class="fun-fact">
                             <div class="counter">
-                                <div class="timer" data-to="50" data-speed="5000">50</div>
-                                <div class="operator">+</div>
+                                <div class="timer" data-to="50" data-speed="5000">{% trans "50" %}</div>
+                                <div class="operator">{% trans "+" %}</div>
                             </div>
-                            <span class="medium">Team Member</span>
+                            <span class="medium">{% trans "Team Member" %}</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 about-style-three">
-                    <h4 class="sub-heading">About Cleaning Agency </h4>
-                    <h2 class="heading">We are committed to give <br> our best services</h2>
+                    <h4 class="sub-heading">{% trans "About Cleaning Agency " %}</h4>
+                    <h2 class="heading">{% trans "We are committed to give <br> our best services" %}</h2>
                     <p>
-                        Friendly bachelor entrance to on by. Extremity as if breakfast agreement. Off now mistress provided out horrible opinions. Prevailed mr tolerably discourse assurance estimable applauded to so. Him everything melancholy uncommonly but solicitude inhabiting projection.
+                        {% trans "Friendly bachelor entrance to on by. Extremity as if breakfast agreement. Off now mistress provided out horrible opinions. Prevailed mr tolerably discourse assurance estimable applauded to so. Him everything melancholy uncommonly but solicitude inhabiting projection." %}
                     </p>
                     <ul>
-                        <li>Service Monitoring</li>
-                        <li>Fast Communication</li>
-                        <li>Customer Support Live Chat</li>
-                        <li>Information for Any Services</li>
+                        <li>{% trans "Service Monitoring" %}</li>
+                        <li>{% trans "Fast Communication" %}</li>
+                        <li>{% trans "Customer Support Live Chat" %}</li>
+                        <li>{% trans "Information for Any Services" %}</li>
                     </ul>
-                    <a class="btn btn-theme primary effect btn-md" href="#">Contact Us</a>
+                    <a class="btn btn-theme primary effect btn-md" href="#">{% trans "Contact Us" %}</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- End About -->
 
-    <!-- Start Fun Factor Area
-    ============================================= -->
-    <div class="fun-factor-area bg-theme text-light">
-
-        <div class="container">
-            <div class="fun-fact-items text-center default-padding">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 item">
-                        <div class="fun-fact">
-                            <div class="counter">
-                                <div class="timer" data-to="1267" data-speed="5000">1267</div>
-                                <div class="operator">+</div>
-                            </div>
-                            <span class="medium">Orders</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 item">
-                        <div class="fun-fact">
-                            <div class="counter">
-                                <div class="timer" data-to="846" data-speed="5000">846</div>
-                                <div class="operator">+</div>
-                            </div>
-                            <span class="medium">Trusted Clients</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 item">
-                        <div class="fun-fact">
-                            <div class="counter">
-                                <div class="timer" data-to="36" data-speed="5000">36</div>
-                                <div class="operator">+</div>
-                            </div>
-                            <span class="medium">Years Of Experience</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Fixed BG -->
-        <div class="fixed-bg" style="background-image: url({% static 'img/shape/29.png' %});"></div>
-        <!-- Fixed BG -->
-    </div>
-    <!-- End Fun Factor Area -->
-
-    <!-- Start Process Area
-    ============================================= -->
-    <div class="work-process-area shadow-less text-center default-padding">
-        <!-- Shape -->
-        <div class="shape">
-            <img src="{% static 'img/shape/13.png' %}" alt="Shape">
-        </div>  
-        <!-- End Shape -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h4>Work Process</h4>
-                        <h2>How it Works</h2>
-                        <div class="devider"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="process-items">
-                <div class="row">
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{% static 'img/services/12.jpg' %}" alt="Thumb">
-                                <span>01</span>
-                            </div>
-                            <h5>Book Online Form</h5>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{% static 'img/services/14.jpg' %}" alt="Thumb">
-                                <span>02</span>
-                            </div>
-                            <h5>Get expert cleaner</h5>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{% static 'img/services/13.jpg' %}" alt="Thumb">
-                                <span>03</span>
-                            </div>
-                            <h5>Relax &amp; enjoy cleanin</h5>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Process Area -->
-
-    <!-- Start Team 
-    ============================================= -->
     
-    <!-- End Team-->
-
     {% endblock content %}

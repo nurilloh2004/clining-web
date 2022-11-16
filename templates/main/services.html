@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block content %}
      <!-- Start Breadcrumb 
@@ -9,8 +10,8 @@
                 <div class="col-lg-8 offset-lg-2">
                     <h1>Our Services</h1>
                     <ul class="breadcrumb">
-                        <li><a href="{% url 'myprint:home' %}"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="active">Services</li>
+                        <li><a href="{% url 'myprint:home' %}"><i class="fas fa-home"></i> {% trans "Home" %}</a></li>
+                        <li class="active">{% trans "Services" %}</li>
                     </ul>
                 </div>
             </div>
@@ -23,7 +24,7 @@
   
     <!-- End Fun Factor Area -->
 
-    <!-- Start Pricing Area 
+   <!-- Start Pricing Area 
     ============================================= -->
     <div class="pricing-area default-padding-bottom bottom-less" style="padding-top: 50px;">
         <!-- Fixed Shape -->
@@ -48,79 +49,30 @@
                     <div class="owl-carousel owl-theme owl-loaded">
                         <div class="owl-stage-outer">
                             <div class="owl-stage-rl">
+                                {% for i in card %}
                                 <div class="owl-item"> 
                                     <div class="col-lg-12 single-item">
-                                    <div class="pricing-item">
-                                        <div class="pricing-header">
-                                            <h4>Residential</h4>
-                                        </div>
-                                        <div class="price">
-                                            <h2><sup>$</sup>20</h2>
-                                            <p>
-                                                For Homes
-                                            </p>
-                                        </div>
-                                        <ul>
-                                            <li>Profetional Cleaner <i class="fas fa-check-circle"></i></li>
-                                            <li>2 Bedrroms Cleaning <i class="fas fa-check-circle"></i></li>
-                                            <li>Kitchen Cleaning <i class="fas fa-times-circle"></i></li>
-                                            <li>2 Bathroom Cleaning <i class="fas fa-check-circle"></i></li>
-                                            <li>Roof Cleaning   <i class="fas fa-check-circle"></i></li>
-                                        </ul>
-                                        <a class="btn btn-dark effect btn-sm" href="{% url 'myprint:contact' %}">Book Now</a>
-                                    </div>
-                                </div></div>
-                                <div class="owl-item">
-                                    <div class="col-lg-12 single-item">
-                                        <div class="pricing-item active">
+                                        <div class="pricing-item ">
                                             <div class="pricing-header">
-                                                <h4>Commercial</h4>
+                                                <h4>{{i.name}}</h4>
                                             </div>
                                             <div class="price">
-                                                <h2><sup>$</sup>36</h2>
-                                                <p>
-                                                    For Business
-                                                </p>
+                                                <h2><sup>$</sup>{{i.price}}</h2>
+                                                <p>{{i.detail}}</p>
                                             </div>
-                                            <ul>
-                                                <li>Profetional Cleaner <i class="fas fa-check-circle"></i></li>
-                                                <li>Windows Cleaning  <i class="fas fa-check-circle"></i></li>
-                                                <li>Kitchen Cleaning <i class="fas fa-check-circle"></i></li>
-                                                <li>2 Bathroom Cleaning <i class="fas fa-check-circle"></i></li>
-                                                <li>Roof Cleaning   <i class="fas fa-times-circle"></i></li>
-                                            </ul>
-                                            <a class="btn btn-theme secondary effect btn-sm" href="{% url 'myprint:contact' %}">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item">
-                                    <div class="col-lg-12 single-item">
-                                        <div class="pricing-item">
-                                            <div class="pricing-header">
-                                                <h4>Ressort</h4>
-                                            </div>
-                                            <div class="price">
-                                                <h2><sup>$</sup>49</h2>
-                                                <p>
-                                                    For Strata
-                                                </p>
-                                            </div>
-                                            <ul>
-                                                <li>Profetional Cleaner <i class="fas fa-check-circle"></i></li>
-                                                <li>2 Livingroom Cleaning <i class="fas fa-check-circle"></i></li>
-                                                <li>Kitchen Cleaning <i class="fas fa-times-circle"></i></li>
-                                                <li>2 Bathroom Cleaning <i class="fas fa-check-circle"></i></li>
-                                                <li>Roof Cleaning   <i class="fas fa-check-circle"></i></li>
-                                            </ul>
+                                                <ul>
+                                                    {% for ser in i.service.all %}
+                                                    <li>{{ser.name}}<i {% if ser.is_exist == True %} class="fas fa-check-circle"{% else %} class="fas fa-times-circle"{% endif %}></i></li>
+                                                    {% endfor %}
+                                                </ul>
                                             <a class="btn btn-dark effect btn-sm" href="{% url 'myprint:contact' %}">Book Now</a>
                                         </div>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
-                   
-                  
-                  
+                    </div>     
                 </div>
             </div>
         </div>
@@ -145,38 +97,40 @@
 
                         <!-- forma -->
                         <form method="POST">
-                           {% csrf_token %}
-                           <div class="form-box">
+                            {% csrf_token %}
+                            <div class="form-box">
 
-                            <select id="">
-                                {% for rm in room %}
-                                    <option name="{{rm.name}}" value="{{rm.price}}">{{rm.name}}</option>
+                                <select name="option[]" id="select__calc">
+                                    {% for rm in cat %}
+                                    <option value="{{rm.name}}-{{rm.price}}">{{rm.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                {% for sr in servic %}
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="{{sr.name}}" name="checks[]" class="rate__input input__calc" value="{{sr.name}}-{{sr.price}}">
+                                    <label for="{{sr.name}}"  class="rate__lable">{{sr.name}}</label>
+                                </div>
                                 {% endfor %}
-                            </select>
-                            {% for sr in service %}
-                            <div class="form-checkbox">
-                                <input type="checkbox"  class="rate__input" id="{{sr.id}} value={{sr.name}}">
-                                <label for="{{sr.name}}"  name="{{sr.price}}" class="rate__lable">{{sr.name}}</label>
                             </div>
-                            {% endfor %}
-                           </div>
 
-                           <div class="row" style="margin-top: 25px;">
+
+                            <div class="row" style="margin-top: 25px;">
+                                <div class="col-lg-12">
+                                    <button class="btn-animation dark border calculate__button" type="submit" name="submit" id="submit">
+                                        <span>Get it <i class="fas fa-angle-right"></i></span>
+                                    </button>
+                                </div>
+                            
                             <div class="col-lg-12">
                                 <button class="btn-animation dark border" type="submit" name="submit" id="submit">
                                     <span>Get it <i class="fas fa-angle-right"></i></span>
                                 </button>
                             </div>
-                        </div>
-                            
-
-
-                        <div class="form-price">
-                            <h2>--  </span></h2>
+                            <div class="form-price">
+                                <h2><span>--</span></h2>
+                            </div>
                         </div>
                         </form>
-
-                        <!-- forma -->
 
 
                     </div>
@@ -190,3 +144,39 @@
 
 
     {% endblock content %}
+    {% block script %}
+    <script>
+        const result = document.querySelector(".form-price h2");
+        const form = document.querySelector(".calculate");
+        const calculateButton = document.querySelector(".calculate__button");
+
+        const parentDiv = document.querySelector(".form-box");
+        const select = document.querySelector(".select__options");
+        const selectOption = document.querySelector(".select__calc");
+        const inputCalc = document.querySelectorAll(".input__calc");
+        //culc 
+
+
+
+        function calcTotal (e) {
+            e.preventDefault();
+            const prices = [select__calc.value.split("-")[1]];
+            inputCalc.forEach(item => {
+                if(item.checked) {
+                    return prices.push(item.value.split("-")[1]);
+                }
+            });
+    
+            const totalPrice = prices.reduce((prevValue, currenValue) => Number(prevValue) + Number(currenValue), 0);
+            
+            result.innerText = totalPrice.toLocaleString(
+                undefined,
+                {
+                    minimumFractionDigits: 1
+                }
+            );
+        }
+        calculateButton.addEventListener("click", calcTotal);
+    
+    </script>
+    {% endblock %}  

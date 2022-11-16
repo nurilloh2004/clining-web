@@ -115,39 +115,9 @@ class ContactForm(models.Model):
     class Meta:
         verbose_name = "Kontakt"
 
-# class ServiceType(models.Model):
-#     name = models.CharField(_('name'), max_length=120, blank=True, null=True)
-#     price = models.PositiveIntegerField(_('price'),)
-#     def __str__(self):
-#         return f"{self.name} {str(self.price)}"
-#     class Meta:
-#         verbose_name = "Xizmat kursatish turlari"
 
 
 
-# class RoomCategory(models.Model):
-#     name = models.CharField(_('name'), max_length=100, blank=True, null=True)
-#     price = models.PositiveIntegerField(_('price'), )
-#     def __str__(self):
-#         return self.name
-#     class Meta:
-#         verbose_name = "Xona turlari"
-
-
-# class Orders(models.Model):
-#     roomname = models.CharField(_('roomname'), max_length=100)
-#     roomprice = models.PositiveIntegerField(_('roomprice'), )
-#     servicename = models.CharField(_('servicename'), max_length=100)
-#     serviceprice = models.PositiveIntegerField(_('serviceprice'), )
-#     total = models.PositiveIntegerField(_('total'), )  # 150
-    
-#     def __str__(self):
-#         return f"{str(self.roomname)} {str(self.roomprice)}"
-
-# qani bunda choice hullas sal modellarni xato tuzib qoyibsizda shu serviceni ham orderni ichiga qsez yaxwi bo`lardi`
-#masalan qande bo'ladi 
-#bu code lar github da bor be malol o'zgartirsa bo'laveradi shuni tuzib berolasizmi hoz
-#hozrmasu bugun qilib berolishim mumkun
 class Service(models.Model):
     name = models.CharField(_('name'), max_length=120, blank=True, null=True)
     price = models.PositiveIntegerField(_('price'),)
@@ -169,27 +139,17 @@ class Room(models.Model):
     class Meta:
         verbose_name = "Xona turlari"
 
+class Total(models.Model):
+    total = models.IntegerField()
 
-class Order(models.Model):
-    # ServiceChoices = (
-    #     ('suv', 'suv'),
-    #     ('gaz', 'gaz')
-    # )
-    roomname = models.CharField(max_length=100, blank=True, null=True)
-    roomprice = models.PositiveIntegerField()
-    service = models.ManyToManyField(Service, blank=True)
-    total = models.PositiveIntegerField(blank=True, null=True)
-    #masalanda mana
-    #service = models.CharField(max_length=200, choiches=SerciceChoices)
-    
-    def __str__(self):
-        return f"{str(self.roomname)} {str(self.roomprice)}"
+
 
 class Orders(models.Model):
     roomname = models.CharField(max_length=100, blank=True, null=True)
-    roomprice = models.PositiveIntegerField()
+    roomprice = models.IntegerField(blank=True, null=True)
     servicename = models.CharField(max_length=100, blank=True, null=True)
-    serviceprice = models.PositiveIntegerField()
+    # serviceprice = models.IntegerField(blank=True, null=True)
+    totl = models.ForeignKey(Total, on_delete=models.CASCADE, blank=True, null=True)
     
     def __str__(self):
         return f"{str(self.roomname)} {str(self.roomprice)}"

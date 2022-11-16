@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="breadcrumb-area text-center shadow dark text-light bg-cover"
+         style="background-image: url({% static 'img/banner/6.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1>Project Details</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="fas fa-home"></i> Project</a></li>
+                        <li class="active">Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+    <!-- Star Project Details Area
+    ============================================= -->
+    <div class="project-details-area default-padding">
+        <div class="container">
+            {% for detail in detailCarusel %}
+                <div class="project-details-items">
+                <div class="thumb">
+                    <img src="{{ detail.carusel.image.url }}" alt="Thumb">
+                </div>
+                <div class="top-info">
+                    <div class="row">
+                        <div class="col-lg-7 left-info">
+                            <h2>{{ detail.title }}</h2>
+                            <p>{{ detail.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
