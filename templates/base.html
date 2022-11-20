@@ -147,16 +147,17 @@
                             <!-- /.navbar-collapse -->
 
                             <!-- Start Atribute Navigation -->
+                            {% get_current_language as CURRENT_LANGUAGE %}
+                            {% get_available_languages as AVAILABLE_LANGUAGES %}
+                            {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
                             <div class="col-lg-3">
                                 <div class="attr-nav">
                                     <ul>
                                         <li class="search"><a href="#"><i class="fas fa-search"></i></a></li>
-                                        <li style="width: 80px; display: flex; padding: 0px;" class="side-menu">
-                                            {% for lang_code, lang_name in languages %}
-                                                {% language lang_code %}
-                                                    <button type="submit" class="btn btn-light ml-2"><a href="/{{ lang_code }}">{{ lang_name }}</a></button>
-                                                {% endlanguage %}
-                                            {% endfor %}
+                                        <li style="width: 80px; display: flex; padding: 0px;">
+                                        {% for language in languages %}
+                                            <a href="/{{ language.code }}/">{{ language.code }}</a>
+                                        {% endfor %}
                                         </li>
                                     </ul>
                                 </div> 

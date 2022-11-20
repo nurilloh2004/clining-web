@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+{% load static %} 
 {% load i18n %}
-{% load static %}
-{% block content %}
 
+{% block content %}
      <!-- Start Breadcrumb 
     ============================================= -->
     <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url({% static 'img/banner/10.jpg'%});">
@@ -29,7 +29,7 @@
                     <div class="col-lg-4 info">
                         <div class="content text-light text-center">
                             <div class="thumb">
-                                <img src="{% static 'img/illustration/4.png'%}" alt="Thumb">
+                                <img src="{{contact_us_banner.location_call_img.url}}" alt="Thumb">
                             </div>
                             <ul>
                                 <li>
@@ -49,15 +49,16 @@
                     </div>
                     <div class="col-lg-8 contact-form-box">
                         <div class="form-box">
-                            <h2>Let's talk?</h2>
+                            <h2>{% trans "Let's talk?" %}</h2>
                             <p>
-                                It's all about the humans behind a brand and those experiencing it, we're right there. In the middle performance quick.
+                                {% trans "It's all about the humans behind a brand and those experiencing it, we're right there. In the middle performance quick." %}
                             </p>
-                            <form action="{% static 'mail/contact.php'%}" method="POST" class="contact-form">
+                            <form action="" method="POST">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                            {{ form.name }}
                                             <span class="alert-error"></span>
                                         </div>
                                     </div>
@@ -65,13 +66,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input class="form-control" id="email" name="email" placeholder="Email*" type="email">
-                                            <span class="alert-error"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
+                                            {{ form.phone_number }}
                                             <span class="alert-error"></span>
                                         </div>
                                     </div>
@@ -79,7 +74,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group comments">
-                                            <textarea class="form-control" id="comments" name="comments" placeholder="Tell Us About Project *"></textarea>
+                                            {{ form.description }}
                                         </div>
                                     </div>
                                 </div>
@@ -117,5 +112,4 @@
         </div>
     </div>
     <!-- End Google Maps -->
-
-{% endblock content %}
+{% endblock %}

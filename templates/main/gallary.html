@@ -1,17 +1,19 @@
-{% include "base.html" %}
-{% load i18n %}
+{% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
+Gallery
 {% block content %}
+
      <!-- Start Breadcrumb 
     ============================================= -->
     <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url({% static 'img/banner/6.jpg' %});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h1>Latest Projects</h1>
+                    <h1>{% trans 'Latest Projects' %}</h1>
                     <ul class="breadcrumb">
-                        <li><a href="{% url 'myprint:home' %}"><i class="fas fa-home"></i> {% trans "Home" %}</a></li>
-                        <li class="active">{% trans "Projects" %}</li>
+                        <li><a href="{% url 'myprint:home' %}"><i class="fas fa-home"></i>{% trans 'Home' %}</a></li>
+                        <li class="active">{% trans 'Projects' %}</li>
                     </ul>
                 </div>
             </div>
@@ -26,73 +28,24 @@
             <div class="project-items-area">
                 <div class="masonary">
                     <div id="portfolio-grid" class="gallery-items colums-3" style="position: relative; height: 708.3px;">
-                        
+                        {% for pro in projects %}
                         <!-- Single Item -->
                         <div class="pf-item" style="position: absolute; left: 0%; top: 0px;">
                             <div class="project-style-two">
-                                <img src="{% static 'img/projects/v1.jpg' %}" alt="Thumb">
+                                <img src="{{pro.image.url}}" alt="Thumb">
                                 <div class="info">
-                                    <span>{% trans "House, Office" %}</span>
-                                    <h4><a href="{% url 'myprint:home' %}">{% trans "Door Cleaning" %}</a></h4>
+                                    <span>{{pro.place}}</span>
+                                    <h4><a href="{% url 'gallary-detail' pro.pk %}">{{pro.service}}</a></h4>
                                 </div>
                             </div>
                         </div>
                         <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div class="pf-item" style="position: absolute; left: 33.25%; top: 0px;">
-                            <div class="project-style-two">
-                                <img src="{% static 'img/projects/2.jpg' %}" alt="Thumb">
-                                <div class="info">
-                                    <span>Apartment</span>
-                                    <h4><a href="{% url 'myprint:home' %}">Garden Cleaning</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div class="pf-item" style="position: absolute; left: 66.5833%; top: 0px;">
-                            <div class="project-style-two">
-                                <img src="{% static 'img/projects/10.jpg' %}" alt="Thumb">
-                                <div class="info">
-                                    <span>Residential, Office</span>
-                                    <h4><a href="{% url 'myprint:home' %}">Bedroom Cleaning</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div class="pf-item" style="position: absolute; left: 66.5833%; top: 307px;">
-                            <div class="project-style-two">
-                                <img src="{% static 'img/projects/5.jpg' %}" alt="Thumb">
-                                <div class="info">
-                                    <span>Home, Apartment</span>
-                                    <h4><a href="{% url 'myprint:home' %}">House Cleaning</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Item -->
-
-                        <!-- Single Item -->
-                        <div class="pf-item" style="position: absolute; left: 33.25%; top: 399px;">
-                            <div class="project-style-two">
-                                <img src="{% static 'img/projects/9.jpg' %}" alt="Thumb">
-                                <div class="info">
-                                    <span>Office, House</span>
-                                    <h4><a href="{% url 'myprint:home' %}">Furniture Cleaning</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Item -->
-
-
+                        {% endfor %}
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Projects Area -->
-
-{% endblock content %}
+{% endblock %}

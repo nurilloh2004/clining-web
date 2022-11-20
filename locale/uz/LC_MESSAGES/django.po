@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-12 12:13+0500\n"
-"PO-Revision-Date: 2022-11-12 12:24+0500\n"
+"POT-Creation-Date: 2022-11-16 16:10+0500\n"
+"PO-Revision-Date: 2022-11-17 09:12+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,10 +20,14 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: .\clining\models.py:8 .\clining\models.py:17 .\clining\models.py:33
-#: .\clining\models.py:62 .\clining\models.py:84 .\clining\models.py:96
-#: .\clining\models.py:109 .\clining\models.py:119 .\clining\models.py:129
+#: .\clining\models.py:63 .\clining\models.py:85 .\clining\models.py:96
+#: .\clining\models.py:109 .\clining\models.py:122 .\clining\models.py:133
 msgid "name"
 msgstr "ism"
+
+#: .\clining\models.py:14
+msgid "Sub Order Category"
+msgstr "Forma Detallari"
 
 #: .\clining\models.py:18 .\clining\models.py:110
 msgid "email"
@@ -33,63 +37,122 @@ msgstr "email"
 msgid "phone_number"
 msgstr "nomer"
 
-#: .\clining\models.py:34 .\clining\models.py:63
+#: .\clining\models.py:26
+msgid "Order Form"
+msgstr "Buyurtmalar"
+
+#: .\clining\models.py:34 .\clining\models.py:64
 msgid "image"
 msgstr "rasm"
 
-#: .\clining\models.py:44 .\clining\models.py:72
+#: .\clining\models.py:39
+msgid "Karusel"
+msgstr "Karusel"
+
+#: .\clining\models.py:45 .\clining\models.py:73
 msgid "title"
-msgstr ""
+msgstr "sarlavha"
 
-#: .\clining\models.py:45 .\clining\models.py:73 .\clining\models.py:112
+#: .\clining\models.py:46 .\clining\models.py:74 .\clining\models.py:112
 msgid "description"
-msgstr ""
+msgstr "tavsif"
 
-#: .\clining\models.py:53
-msgid "key"
-msgstr ""
+#: .\clining\models.py:50
+msgid "Carusel Detail"
+msgstr "Karusel detallari"
 
 #: .\clining\models.py:54
+msgid "key"
+msgstr "kalit so'z"
+
+#: .\clining\models.py:55
 msgid "value"
-msgstr ""
+msgstr "qiymat"
+
+#: .\clining\models.py:59
+msgid "Sozlamalar"
+msgstr "Sozlamalar"
+
+#: .\clining\models.py:68
+#| msgid "Gallary"
+msgid "Gallary Category"
+msgstr "Rasmlar bo'limi"
+
+#: .\clining\models.py:78
+msgid "Gallery Detail"
+msgstr "Rasmlar detallari"
 
 #: .\clining\models.py:86
 msgid "is_exist"
-msgstr ""
+msgstr "Mavjudmi ?"
 
-#: .\clining\models.py:97 .\clining\models.py:120 .\clining\models.py:130
+#: .\clining\models.py:91
+msgid "Sub Card Xizmatlar"
+msgstr "Karta Xizmatlari detali"
+
+#: .\clining\models.py:97 .\clining\models.py:123 .\clining\models.py:134
 msgid "price"
-msgstr ""
+msgstr "narxi"
 
 #: .\clining\models.py:98
 msgid "detail"
-msgstr ""
+msgstr "detali"
 
-#: .\clining\models.py:138
-msgid "roomname"
-msgstr ""
+#: .\clining\models.py:102
+msgid "Card Xizmatlar"
+msgstr "Karta Xizmatlar "
 
-#: .\clining\models.py:139
-msgid "roomprice"
-msgstr ""
+#: .\clining\models.py:116
+#, fuzzy
+#| msgid "contact"
+msgid "Kontakt"
+msgstr "Aloqa"
+
+#: .\clining\models.py:129
+msgid "Xizmat kursatish turlari"
+msgstr "Xizmat kursatish turlari"
 
 #: .\clining\models.py:140
-msgid "servicename"
-msgstr ""
+msgid "Xona turlari"
+msgstr "Xona turlari"
 
-#: .\clining\models.py:141
-msgid "serviceprice"
-msgstr ""
+#: .\clining\models.py:146
+msgid "roomname"
+msgstr "xona nomi"
+
+#: .\clining\models.py:147
+msgid "roomprice"
+msgstr "xona narxi"
+
+#: .\clining\models.py:148
+msgid "servicename"
+msgstr "xizmat nomi"
+
+#: .\clining\models.py:155
+msgid "Buyurtmalar"
+msgstr "Buyurtmalar"
+
+#: .\config\settings.py:124
+msgid "En"
+msgstr "en"
+
+#: .\config\settings.py:125
+msgid "Ru"
+msgstr "ru"
+
+#: .\config\settings.py:126
+msgid "Uz"
+msgstr "uz"
 
 #: .\config\urls.py:26
 msgid "admin/"
-msgstr ""
+msgstr "admin/"
 
 #: .\templates\base.html:57
 msgid " Working Hours:   "
-msgstr ""
+msgstr "Ishlash vaqti :"
 
-#: .\templates\base.html:126 .\templates\base.html:213
+#: .\templates\base.html:126 .\templates\base.html:215
 #: .\templates\main\about.html:14 .\templates\main\gallary.html:13
 #: .\templates\main\services.html:13
 msgid "Home"
@@ -103,124 +166,130 @@ msgstr "Biz haqimizda"
 msgid "Gallary"
 msgstr "Rasmlar"
 
-#: .\templates\base.html:138 .\templates\base.html:235
+#: .\templates\base.html:138 .\templates\base.html:237
 #: .\templates\main\services.html:14
 msgid "Services"
 msgstr "Xizmatlar"
 
-#: .\templates\base.html:142
+#: .\templates\base.html:141
+msgid "Guests"
+msgstr "Mehmonlar"
+
+#: .\templates\base.html:143
 msgid "contact"
 msgstr "Aloqa"
 
-#: .\templates\base.html:200
+#: .\templates\base.html:202
 msgid ""
 "Excellence decisively nay man yet impression for contrasted remarkably. "
 "There spoke happy for you are out. Fertile how old address did showing."
 msgstr ""
+"Mukammallik qat'iy nay, lekin taassurot uchun ajoyib kontrast. Siz chiqib "
+"ketganingizdan xursand bo'lishdi. Qanchalik eski manzil ko'rsatildi."
 
-#: .\templates\base.html:210
+#: .\templates\base.html:212
 msgid "Quick LInk"
-msgstr ""
+msgstr "Tez havola"
 
-#: .\templates\base.html:216
+#: .\templates\base.html:218
 msgid " About us"
-msgstr ""
+msgstr "Biz haqimizda"
 
-#: .\templates\base.html:219
+#: .\templates\base.html:221
 msgid "Compnay History"
-msgstr ""
+msgstr "Kampaniya tarixi"
 
-#: .\templates\base.html:222
+#: .\templates\base.html:224
 msgid "Features"
-msgstr ""
+msgstr "Imkoniyatlar"
 
-#: .\templates\base.html:225
+#: .\templates\base.html:227
 msgid "Blog Page"
 msgstr ""
 
-#: .\templates\base.html:228
+#: .\templates\base.html:230
 msgid "Login"
-msgstr ""
+msgstr "Kirish"
 
-#: .\templates\base.html:238
+#: .\templates\base.html:240
 msgid "House Cleaning"
-msgstr ""
+msgstr "Uy Tozalash"
 
-#: .\templates\base.html:241
+#: .\templates\base.html:243
 msgid "Carpet"
 msgstr ""
 
-#: .\templates\base.html:244
+#: .\templates\base.html:246
 msgid "Garden"
 msgstr ""
 
-#: .\templates\base.html:247
+#: .\templates\base.html:249
 msgid "Bedroom"
 msgstr ""
 
-#: .\templates\base.html:250
+#: .\templates\base.html:252
 msgid "Residential"
 msgstr ""
 
-#: .\templates\base.html:253
+#: .\templates\base.html:255
 msgid "Maid Services"
 msgstr ""
 
-#: .\templates\base.html:260
+#: .\templates\base.html:262
 msgid "Contact Info"
 msgstr ""
 
-#: .\templates\base.html:264
+#: .\templates\base.html:266
 msgid "5919 Trussville Crossings Pkwy, new Dusting town, Austria"
 msgstr ""
 
-#: .\templates\base.html:271
+#: .\templates\base.html:273
 msgid "Opening Hours:"
-msgstr ""
+msgstr "Ishlash vaqti :"
 
-#: .\templates\base.html:279
+#: .\templates\base.html:281
 msgid "Phone:"
-msgstr ""
+msgstr "Telefon :"
 
-#: .\templates\base.html:296
+#: .\templates\base.html:298
 msgid "&copy; Copyright 2022. All Rights Reserved by "
-msgstr ""
+msgstr "&copy; Copyright 2022.Barcha Xuquqlar inobatga olingan"
 
-#: .\templates\base.html:301
+#: .\templates\base.html:303
 msgid "Terms"
-msgstr ""
+msgstr "Shartlar"
 
-#: .\templates\base.html:304
+#: .\templates\base.html:306
 msgid "Privacy"
 msgstr ""
 
-#: .\templates\base.html:307
+#: .\templates\base.html:309
 msgid "Support"
 msgstr ""
 
 #: .\templates\main\about.html:15
 msgid "About"
-msgstr ""
+msgstr "Haqida"
 
 #: .\templates\main\about.html:34
 msgid "50"
-msgstr ""
+msgstr "50"
 
 #: .\templates\main\about.html:35
 msgid "+"
-msgstr ""
+msgstr "+"
 
 #: .\templates\main\about.html:37
 msgid "Team Member"
-msgstr ""
+msgstr "Jamoa A'zolari"
 
 #: .\templates\main\about.html:42
 msgid "About Cleaning Agency "
-msgstr ""
+msgstr "Cleaning agentligi haqida"
 
 #: .\templates\main\about.html:43 .\templates\main\index.html:104
 msgid "We are committed to give <br> our best services"
-msgstr ""
+msgstr "Biz sizga <br> eng yaxshi xizmatilarni taklif etamiz"
 
 #: .\templates\main\about.html:45 .\templates\main\index.html:109
 msgid ""
@@ -252,19 +321,19 @@ msgstr ""
 
 #: .\templates\main\contact.html:14
 msgid " Home"
-msgstr ""
+msgstr "Bosh sahifa"
 
 #: .\templates\main\contact.html:15
 msgid "Contact"
-msgstr ""
+msgstr "Aloqa"
 
 #: .\templates\main\gallary-datails.html:15
 msgid "Project"
-msgstr ""
+msgstr "Loyiha"
 
 #: .\templates\main\gallary-datails.html:16
 msgid "Details"
-msgstr ""
+msgstr "Detallar"
 
 #: .\templates\main\gallary-datails.html:35
 msgid "Making A Clean Difference"
@@ -296,7 +365,7 @@ msgstr ""
 
 #: .\templates\main\gallary.html:35
 msgid "House, Office"
-msgstr ""
+msgstr "Uy Office"
 
 #: .\templates\main\gallary.html:36
 msgid "Door Cleaning"
@@ -324,19 +393,19 @@ msgstr ""
 
 #: .\templates\main\index.html:72
 msgid "Previous"
-msgstr ""
+msgstr "Ayni"
 
 #: .\templates\main\index.html:75
 msgid "Next"
-msgstr ""
+msgstr "Keyingi"
 
 #: .\templates\main\index.html:98
 msgid "26"
-msgstr ""
+msgstr "26"
 
 #: .\templates\main\index.html:99
 msgid "Years Experiences"
-msgstr ""
+msgstr "YIL TAJRIBA"
 
 #: .\templates\main\index.html:106
 msgid ""
@@ -346,15 +415,15 @@ msgstr ""
 
 #: .\templates\main\index.html:117
 msgid "Get Free Estimate"
-msgstr ""
+msgstr "Bepul smeta oling"
 
 #: .\templates\main\index.html:150 .\templates\main\index.html:180
 msgid "One Time / Recurring"
-msgstr ""
+msgstr "Bir martalik / Takroriy"
 
 #: .\templates\main\index.html:151
 msgid "Residential Cleaning"
-msgstr ""
+msgstr "Turar joyni tozalash"
 
 #: .\templates\main\index.html:153
 msgid ""
@@ -364,7 +433,7 @@ msgstr ""
 
 #: .\templates\main\index.html:156
 msgid "Kitchen"
-msgstr ""
+msgstr "Oshxona"
 
 #: .\templates\main\index.html:157
 msgid "Bathrooms"
@@ -376,7 +445,7 @@ msgstr ""
 
 #: .\templates\main\index.html:159
 msgid "Extra Services"
-msgstr ""
+msgstr "Qo'shimcha xizmatlar"
 
 #: .\templates\main\index.html:160
 msgid "Seasonal"
