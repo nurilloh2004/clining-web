@@ -106,9 +106,9 @@ def contact(request):
 
 
 def gallary(request):
-    proj = Room2.objects.filter()
+    det = Room2.objects.all()
     context = {
-        'proj': proj,
+        'det': det,
     }
     return render(request, 'main/gallary.html', context=context)
 
@@ -118,7 +118,7 @@ def gallary_details(request, pk):
     context = {
         'project': project,
     }
-    return render(request, 'main/gallary-details.html', context)
+    return render(request, 'main/gallary-datails.html', context=context)
 
 
 
@@ -306,16 +306,19 @@ def services(request):
     card = CardServices.objects.all()
     cat = Room.objects.all()
     servic = Service.objects.all()
-    # form = AllForm()
     if request.method == "POST":
-    #     services = request.POST.getlist('checks[]')
-    #     house = request.POST.get('option[]').split("-")
-    #     # name = AllForm('name')
-    #     phone_number = AllForm('phone_number')
-    #     house_name = house[0]
-    #     house_price = int(house[1])
-    #     house = Orders.objects.create(roomname=house_name, roomprice=house_price, servicename=services)
-    #     form.save()
+        name = request.POST.get('let[]')
+        print('>>>>>>>>>>>>>>>>>>>', name)
+        phone_number = request.POST.get('lett[]')
+        print('>>>>>>>>>>>>>>>>>>>', phone_number)
+        services = request.POST.getlist('checks[]')
+        print('>>>>>>>>>>>>>>>>>>>', services)
+        house = request.POST.get('option[]').split("-")
+        print('>>>>>>>>>>>>>>>>>>>', house)
+        house_name = house[0]
+        house_price = int(house[1])
+        house = Orders.objects.create(roomname=house_name, roomprice=house_price, servicename=services, user_name=name, user_phone_number=phone_number)
+        house.save()
             
         return redirect('myprint:contact')
     context = {

@@ -28,14 +28,14 @@ Gallery
             <div class="project-items-area">
                 <div class="masonary">
                     <div id="portfolio-grid" class="gallery-items colums-3" style="position: relative; height: 708.3px;">
-                        {% for pro in projects %}
+                        {% for pro in det %}
                         <!-- Single Item -->
                         <div class="pf-item" style="position: absolute; left: 0%; top: 0px;">
                             <div class="project-style-two">
                                 <img src="{{pro.image.url}}" alt="Thumb">
                                 <div class="info">
-                                    <span>{{pro.place}}</span>
-                                    <h4><a href="{% url 'gallary-detail' pro.pk %}">{{pro.service}}</a></h4>
+                                    <span>{{pro.name}}</span>
+                                    <h4><a href="{% url 'myprint:gallary_details' pro.pk %}">{{pro.description}}</a></h4>
                                 </div>
                             </div>
                         </div>

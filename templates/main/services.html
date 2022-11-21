@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load static %}
 {% block content %}
+
      <!-- Start Breadcrumb 
     ============================================= -->
     <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url({% static 'img/banner/21.jpg' %});">
@@ -110,7 +111,16 @@
                                     <input type="checkbox" id="{{sr.name}}" name="checks[]" class="rate__input input__calc" value="{{sr.name}}-{{sr.price}}">
                                     <label for="{{sr.name}}"  class="rate__lable">{{sr.name}}</label>
                                 </div>
+                                
                                 {% endfor %}
+                                <div class="form-group">
+                                    <input name="let[]" id="hm">
+                                    <label for="hm">name</label>
+                                </div>
+                                <div class="form-group">
+                                    <input name="lett[]" id="hmm">
+                                    <label for="hmm">phone number</label>
+                                </div>
                             </div>
                             
 

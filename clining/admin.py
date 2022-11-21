@@ -23,6 +23,16 @@ class OrderFormAdmin(admin.ModelAdmin):
 admin.site.register(OrderForm, OrderFormAdmin)
 
 
+class OrderAdmin(admin.ModelAdmin):
+    list_display = [
+        'id', 'roomname', 'roomprice', 'servicename', 'user_name','user_phone_number'
+    ]
+    list_display_links = ['roomname', 'roomprice', 'servicename', 'user_name', 'user_phone_number']
+    class Meta:
+        model = Orders
+admin.site.register(Orders, OrderAdmin)
+
+
 @admin.register(CaruselImage)
 class CaruselImageAdmin(TranslationAdmin):
     list_display = ['id', 'name', 'image']

@@ -1,57 +1,33 @@
 
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load static %}
 {% block content %}
 
      <!-- Start Breadcrumb 
-    ============================================= -->
-    <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url({% static 'img/banner/6.jpg' %});">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    {% for pro in project %}
-                        <!-- Single Item -->
-                        <div class="pf-item" style="position: absolute; left: 0%; top: 0px;">
-                            <div class="project-style-two">
-                                <img src="{{pro.gallary.image.url}}" alt="Thumb">
-                                <div class="info">
-                                    <span>{{pro.title   }}</span>
-                                    <h4><a href="">{{pro.description}}</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Breadcrumb -->
 
-    <!-- Star Project Details Area
+
     ============================================= -->
     <div class="project-details-area default-padding">
         <div class="container">
+            {% for pro in project %}
             <div class="project-details-items">
                 <div class="thumb">
-                    <img src="{% static 'img/banner/7.jpg' %}" alt="Thumb">
+                    <img src="{{pro.gallary.image.url}}" alt="Thumb">
                 </div>
                 <div class="top-info">
                     <div class="row">
+                        
                         <div class="col-lg-12 left-info">
-                            <h2>{% trans "Making A Clean Difference" %}</h2>
+                            <h2>{{pro.gallary.name}}</h2>
                             <p>
-                                {% trans "New had happen unable uneasy. Drawings can followed improved out sociable not. Earnestly so do instantly pretended. See general few civilly amiable pleased account carried. Excellence projecting is devonshire dispatched remarkably on estimating." %}
-                            </p>
-                            <p>
-                                {% trans "Netus lorem rutrum arcu dignissim at sit morbi phasellus nascetur eget urna potenti cum vestibulum cras. Tempor nonummy metus lobortis. Sociis velit etiam, dapibus. Lectus vehicula pellentesque cras posuere tempor facilisi habitant lectus rutrum pede quisque hendrerit parturient posuere mauris ad elementum fringilla facilisi volutpat fusce pharetra felis sapien varius quisque class convallis praesent est sollicitudin donec nulla venenatis, cursus fermentum netus posuere sociis porta risus habitant malesuada nulla habitasse hymenaeos. Viverra curabitur nisi vel sollicitudin dictum natoqu." %}
+                                {{pro.gallary.description}}
                             </p>
                         </div>
                        
                     </div>
                 </div>
-
+                {% endfor %}
                
             </div>
         </div>

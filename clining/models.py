@@ -145,8 +145,8 @@ class Orders(models.Model):
     roomname = models.CharField(_('roomname'), max_length=100, blank=True, null=True)
     roomprice = models.IntegerField(_('roomprice'),blank=True, null=True)
     servicename = models.CharField(_('servicename'),max_length=100, blank=True, null=True)
-    name = models.CharField(_('name'), max_length=65)
-    phone_number = models.IntegerField(_('phone_number'))
+    user_name = models.CharField(_('user name'), max_length=65)
+    user_phone_number = models.CharField(_('user_phone_number'), max_length=65)
     
     def __str__(self):
         return f"{str(self.roomname)} {str(self.roomprice)}"
@@ -167,7 +167,7 @@ class Room2(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = _('Xona turlari')
+        verbose_name = _('Xona detaillari')
 
 
 # Gallereya Tavsiloti
