@@ -124,8 +124,30 @@ def gallary_details(request, pk):
 
 
 def guests(request):
-    
-    return render(request, 'main/guests.html')
+    card = CardServices.objects.all()
+    cat = RoomGuest.objects.all()
+    servic = ServiceGuest.objects.all()
+    if request.method == "POST":
+        name = request.POST.get('let[]')
+        print('>>>>>>>>>>>>>>>>>>>', name)
+        phone_number = request.POST.get('lett[]')
+        print('>>>>>>>>>>>>>>>>>>>', phone_number)
+        services = request.POST.getlist('checks[]')
+        print('>>>>>>>>>>>>>>>>>>>', services)
+        house = request.POST.get('option[]').split("-")
+        print('>>>>>>>>>>>>>>>>>>>', house)
+        house_name = house[0]
+        house_price = int(house[1])
+        house = OrdersGuest.objects.create(roomname=house_name, roomprice=house_price, servicename=services, user_name=name, user_phone_number=phone_number)
+        house.save()
+            
+        return redirect('myprint:contact')
+    context = {
+        'cat': cat, 
+        'servic': servic,
+        'card': card,
+    }
+    return render(request, 'main/guests.html', context)
 
 
 

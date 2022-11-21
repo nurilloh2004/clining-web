@@ -30,7 +30,7 @@ class OrdersGuest(models.Model):
     roomname = models.CharField(_('roomname'), max_length=100, blank=True, null=True)
     roomprice = models.IntegerField(_('roomprice'),blank=True, null=True)
     servicename = models.CharField(_('servicename'),max_length=100, blank=True, null=True)
-    user_namee = models.CharField(_('user name'), max_length=65)
+    user_name = models.CharField(_('user name'), max_length=65)
     user_phone_number = models.CharField(_('user_phone_number'), max_length=65)
     
     def __str__(self):
