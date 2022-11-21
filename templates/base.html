@@ -212,51 +212,18 @@
                             <h4 class="widget-title">{% trans "Quick LInk" %}</h4>
                             <ul>
                                 <li>
-                                    <a href="index.html"><i class="fas fa-angle-right"></i> {% trans "Home" %}</a>
+                                    <a href="{% url 'myprint:home' %}"><i class="fas fa-angle-right"></i> {% trans "Home" %}</a>
                                 </li>
                                 <li>
-                                    <a href="about-us.html"><i class="fas fa-angle-right"></i>{% trans " About us" %}</a>
+                                    <a href="{% url 'myprint:about' %}"><i class="fas fa-angle-right"></i>{% trans " About us" %}</a>
                                 </li>
                                 <li>
-                                    <a href="about-us.html"><i class="fas fa-angle-right"></i> {% trans "Compnay History" %}</a>
-                                </li>
-                                <li>
-                                    <a href="about-us.html"><i class="fas fa-angle-right"></i> {% trans "Features" %}</a>
-                                </li>
-                                <li>
-                                    <a href="blog-standard.html"><i class="fas fa-angle-right"></i> {% trans "Blog Page" %}</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-angle-right"></i> {% trans "Login" %}</a>
+                                    <a href="{% url 'myprint:services' %}"><i class="fas fa-angle-right"></i> {% trans "Compnay History" %}</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 item">
-                        <div class="f-item link">
-                            <h4 class="widget-title">{% trans "Services" %}</h4>
-                            <ul>
-                                <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "House Cleaning" %}</a>
-                                </li>
-                                <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Carpet" %}</a>
-                                </li>
-                                <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Garden" %}</a>
-                                </li>
-                                <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Bedroom" %}</a>
-                                </li>
-                                <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Residential" %}</a>
-                                </li>
-                                <li>
-                                    <a href="services-details.html"><i class="fas fa-angle-right"></i> {% trans "Maid Services" %}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     <div class="col-lg-3 col-md-6 item">
                         <div class="f-item contact-widget">
                             <h4 class="widget-title">{% trans "Contact Info" %}</h4>
@@ -300,13 +267,13 @@
                         <div class="col-lg-6 text-right link">
                             <ul>
                                 <li>
-                                    <a href="#">{% trans "Terms" %}</a>
+                                    <a href="https://datasite.uz">{% trans "Terms" %}</a>
                                 </li>
                                 <li>
-                                    <a href="#">{% trans "Privacy" %}</a>
+                                    <a href="https://datasite.uz">{% trans "Privacy" %}</a>
                                 </li>
                                 <li>
-                                    <a href="#">{% trans "Support" %}</a>
+                                    <a href="https://datasite.uz">{% trans "Support" %}</a>
                                 </li>
                             </ul>
                         </div>

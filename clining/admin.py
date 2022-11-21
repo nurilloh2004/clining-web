@@ -126,6 +126,19 @@ class ServiceTypeAdmin(admin.ModelAdmin):
     list_display_links = ['name']
 
 
+# @admin.register(RoomGuest)
+# class RoomCategoryAdmin(admin.ModelAdmin):
+#     list_display = [
+#         'id', 'name', 'price'
+#     ]
+#     list_display_links = ['name']
+
+
+# @admin.register(ServiceGuest)
+# class ServiceTypeAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'name', 'price']
+#     list_display_links = ['name']
+
 
 
 # class OrdersAdmin(admin.ModelAdmin):

@@ -2,6 +2,43 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+class ServiceGuest(models.Model):
+    name = models.CharField(_('name'), max_length=120, blank=True, null=True)
+    price = models.PositiveIntegerField(_('price'),)
+
+
+    def __str__(self):
+        return f"{self.name} {str(self.price)}"
+    class Meta:
+        verbose_name = _('Xizmat kursatish turlari Mehmonlar')
+
+
+class RoomGuest(models.Model):
+    name = models.CharField(_('name'), max_length=100, blank=True, null=True)
+    price = models.PositiveIntegerField(_('price'), )
+    
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('Xona turlari Mehmonlar')
+
+
+
+
+class OrdersGuest(models.Model):
+    roomname = models.CharField(_('roomname'), max_length=100, blank=True, null=True)
+    roomprice = models.IntegerField(_('roomprice'),blank=True, null=True)
+    servicename = models.CharField(_('servicename'),max_length=100, blank=True, null=True)
+    user_namee = models.CharField(_('user name'), max_length=65)
+    user_phone_number = models.CharField(_('user_phone_number'), max_length=65)
+    
+    def __str__(self):
+        return f"{str(self.roomname)} {str(self.roomprice)}"
+    
+
+class Meta:
+        verbose_name = _('Mehmonlar uchun Buyurtmalar')
 # Hope Page
 
 class OrderCategory(models.Model):
@@ -117,6 +154,35 @@ class ContactForm(models.Model):
 
 
 
+
+
+
+    
+
+class Room2(models.Model):
+    name = models.CharField(_('name'), max_length=100, blank=True, null=True)
+    description = models.TextField(_('description'), max_length=550)
+    image = models.ImageField(_('image'), upload_to='media/ccc', blank=True, null=True)
+    
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('Xona detaillari')
+
+
+# Gallereya Tavsiloti
+class Project(models.Model):
+    gallary = models.ForeignKey(Room2, on_delete=models.CASCADE)
+    title = models.CharField(_('title'), max_length=200)
+    description = models.TextField(_('description'))
+
+    def __str__(self):
+        return self.title
+    class Meta:
+        verbose_name = _('Project')
+
+
 class Service(models.Model):
     name = models.CharField(_('name'), max_length=120, blank=True, null=True)
     price = models.PositiveIntegerField(_('price'),)
@@ -156,27 +222,7 @@ class Meta:
         verbose_name = _('Buyurtmalar')
 
 
-    
-
-class Room2(models.Model):
-    name = models.CharField(_('name'), max_length=100, blank=True, null=True)
-    description = models.TextField(_('description'), max_length=550)
-    image = models.ImageField(_('image'), upload_to='media/ccc', blank=True, null=True)
-    
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = _('Xona detaillari')
 
 
-# Gallereya Tavsiloti
-class Project(models.Model):
-    gallary = models.ForeignKey(Room2, on_delete=models.CASCADE)
-    title = models.CharField(_('title'), max_length=200)
-    description = models.TextField(_('description'))
 
-    def __str__(self):
-        return self.title
-    class Meta:
-        verbose_name = _('Project')
+

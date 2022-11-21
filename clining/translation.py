@@ -2,6 +2,14 @@ from modeltranslation.translator import TranslationOptions, register
 from .models import *
 
 
+# @register(ServiceGuest)
+# class Translation(TranslationOptions):
+#     fields = ('name',)
+
+# @register(RoomGuest)
+# class Translation(TranslationOptions):
+#     fields = ('name',)
+
 
 @register(Room2)
 class ProjectDetail(TranslationOptions):
