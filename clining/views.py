@@ -342,7 +342,7 @@ def services(request):
         house = Orders.objects.create(roomname=house_name, roomprice=house_price, servicename=services, user_name=name, user_phone_number=phone_number)
         house.save()
             
-        return redirect('myprint:contact')
+        return redirect('myprint:home')
     context = {
         'cat': cat, 
         'servic': servic,
